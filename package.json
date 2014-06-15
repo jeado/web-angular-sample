@@ -1,0 +1,14 @@
+{
+  "name": "web-angular-usermgt",
+  "version": "0.0.1",
+  "description": "월간 웹 AngularJS 연재 데모 웹 어플리케이션 ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeado Ko",
+  "license": "월간 웹",
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  }
+}

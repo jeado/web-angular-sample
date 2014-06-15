@@ -1,0 +1,53 @@
+body{
+  background-repeat:repeat;
+  background-color:rgb(251,251,251);
+}
+
+.searchBox{
+  padding:10px 20px 10px 30px;
+  border-bottom:1px rgba(240,240,240,1) solid;
+  background-color:rgb(251,251,251);
+}
+
+.searchBox .btn i{
+  margin: 3px 0;
+}
+
+.borBox{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+.box {
+  border-radius: 1px !important;
+}
+
+.centerOnPage{
+  position:absolute;
+  left:50%;
+  width:auto;
+}
+
+.input-append > li {
+	float: left;
+}
+
+.table thead th {
+  text-align: center;
+}
+
+.table tbody td {
+  padding: 
+}
+
+.table tbody input {
+  width: 98%;
+  margin-bottom: 0;
+}
+
+td.center {
+  text-align: center;
+}
