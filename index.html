@@ -1,11 +1,12 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="userMgnt">
 <head>
 	<meta charset="UTF-8">
 	<title>사용자 관리 DEMO APP</title>
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="resources/app.css">
 	<script type="text/javascript" src="libs/angular/angular.js"></script>
+	<script type="text/javascript" src="libs/angular/angular-cookies.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -50,7 +51,7 @@
 								<button class="btn btn-danger" type="button" ng-show="!user.edit" ng-click="edit(user)">
 									<i class='icon-white icon-pencil'></i>
 								</button>
-								<button class="btn btn-info" ng-show="user.edit" type="button" ng-click="edit(user)">
+								<button class="btn btn-info" ng-show="user.edit" type="button" ng-click="complete(user)">
 									<i class='icon-white icon-ok'></i>
 								</button>
 							</td>

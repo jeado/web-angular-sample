@@ -1,22 +1,32 @@
-function mainCtrl($scope) {
-  $scope.userList = [
-    { name : '가인', email : 'gain@naver.com', regDate : '2014-06-30' }
-  ];
+angular.module('userMgnt', ['ngCookies']).
+	controller('mainCtrl', ['$scope','$cookies','$cookieStore', function ($scope, $cookies, $cookieStore) {
 
-	$scope.insert = function() {
-    $scope.userList.push({ edit : true });
-	};
+		function gerUsers() {
+			var userList = [];
+			angular.forEach($cookies, function(val, key) {
+				userList.push($cookieStore.get(key));
+			});
+			return userList;
+		}
 
-	$scope.complete = function (user) {
-    user.edit = false;
-	};
+		$scope.userList = gerUsers();
 
-	$scope.edit = function (user) {
-    user.edit = true;
-	};
+		$scope.insert = function() {
+	    $scope.userList.push({ edit : true });
+		};
 
-	$scope.del = function (index) {
-		$scope.userList.splice(index, 1);
-	}
-	
-}
+		$scope.complete = function (user) {
+	  user.edit = false;
+	  $cookieStore.put(user.email, user);
+		};
+
+		$scope.edit = function (user) {
+	  user.edit = true;
+	  $cookieStore.put(user.email, user);
+		};
+
+		$scope.del = function (index) {
+			$cookieStore.remove($scope.userList[index].email);
+			$scope.userList.splice(index, 1);
+		}	
+	}]);
