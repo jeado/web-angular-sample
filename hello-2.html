@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="sampleApp">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="libs/angular/angular.js"></script>
+  <script type="text/javascript">
+   angular.module('sampleApp', []).
+    directive('hello', [function(){
+      return {
+        restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
+        template: '<h1>hello {{name}}</h1>',
+        link: function($scope, iElm, iAttrs, controller) {
+          $scope.name = iAttrs.name;
+        }
+      };
+    }]);
+  </script>
+ </head>
+<body>
+ <hello name="월간 웹"></hello>
+</body>
+</html>

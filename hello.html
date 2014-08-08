@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app="sampleApp">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="libs/angular/angular.js"></script>
+  <script type="text/javascript">
+   angular.module('sampleApp', []).
+    directive('hello', function () {
+     return function ($scope, iElm, iAttrs, controller) {
+      iElm.html("<h1>hello "+iAttrs.name+"</h1>")
+     };
+    });
+  </script>
+ </head>
+<body>
+ <div hello name="월간 웹"></div>
+</body>
+</html>
