@@ -1,0 +1,14 @@
+[
+	{
+		"userId" : "1",
+		"name" : "미나",
+		"email" : "mina@gmail.com",
+		"regDate" : "2012-03-12"
+	},
+	{
+		"userId" : "2",
+		"name" : "제시카",
+		"email" : "jess@gmail.com",
+		"regDate" : "2012-03-12"
+	}
+]

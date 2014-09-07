@@ -1,0 +1,23 @@
+ <table class="table table-striped table-bordered table-hover">
+   <thead>
+     <tr>
+       <th>#</th>
+       <th>이름</th>
+       <th>E-Mail</th>
+       <th>가입 날짜</th>
+     </tr>
+    </thead> 
+   <tbody>
+     <tr ng-repeat="user in userList" ng-click="goDetail(user.userId)">
+       <td>{{$index + 1}}</td>
+       <td>{{user.name}}</td>
+       <td>{{user.email}}</td >
+       <td>{{user.regDate}}</td>
+     </tr>
+     <tr ng-show="!userList.length">
+       <td colspan="6" style="text-align :center">
+         <span class="text-warning">데이터가 없습니다.</span>
+       </td>
+     </tr>
+   </tbody>
+ </table>
