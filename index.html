@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="userMgnt">
 <head>
 	<meta charset="UTF-8">
 	<title>사용자 관리 DEMO APP</title>
@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="resources/app.css">
 	<script type="text/javascript" src="libs/angular/angular.js"></script>
 	<script type="text/javascript" src="libs/angular/angular-animate.js"></script>
+	<script type="text/javascript" src="libs/angular/angular-cookies.js"></script>
+	<script type="text/javascript" src="libs/ui-bootstrap/ui-bootstrap-0.8.0.js"></script>
+	<script type="text/javascript" src="libs/ui-bootstrap/ui-bootstrap-tpls-0.8.0.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -68,8 +71,10 @@
 						</tr>
 					</tbody>
 				</table>
-				{{userList}}
 			</div>
+		</div>
+		<div class="row-fluid">
+			<pagination class="text-center" total-items="totalItems" page="currentPage" items-per-page="3"></pagination>
 		</div>
 	</div>
 </body>

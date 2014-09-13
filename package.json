@@ -9,6 +9,18 @@
   "author": "Jeado Ko",
   "license": "월간 웹",
   "devDependencies": {
+    "grunt": "~0.4.5",
+    "gulp-webserver": "^0.3.4"
+  },
+  "dependencies": {
     "grunt": "~0.4.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeado/web-angular-sample.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeado/web-angular-sample/issues"
+  },
+  "homepage": "https://github.com/jeado/web-angular-sample"
 }
