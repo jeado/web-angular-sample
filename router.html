@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="routerApp">
+<head>
+	<meta charset="UTF-8">
+	<title>라우터 데모 엡</title>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="libs/angular/angular.js"></script>
+	<script type="text/javascript" src="libs/angular/angular-route.js"></script>
+	<script type="text/javascript" src="routerApp.js"></script>	
+</head>
+<body>
+<div class="container">
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <a class="brand" href="#">라우터 셈플</a>
+	    <ul class="nav">
+	      <li><a href="#home">홈</a></li>
+	      <li><a href="#userList">사용자 관리</a></li>
+	    </ul>
+	  </div>
+	</div>
+	<ng-view></ng-view>
+</div>
+</body>
+</html>
