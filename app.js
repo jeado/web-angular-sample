@@ -1,4 +1,4 @@
-angular.module('userMgnt', ['ngCookies','ui.bootstrap']).
+angular.module('userMgnt', ['ngCookies','ui.bootstrap','ngAnimate']).
  factory('userSvc', ['$cookies', '$cookieStore', function($cookies, $cookieStore){
   return {
    getUsers : function () {

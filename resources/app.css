@@ -40,7 +40,7 @@ body{
 }
 
 .table tbody td {
-  padding: 
+  position: relative;
 }
 
 .table tbody input {

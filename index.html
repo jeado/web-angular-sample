@@ -5,6 +5,7 @@
 	<title>사용자 관리 DEMO APP</title>
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="resources/app.css">
+	<link rel="stylesheet" href="resources/animation.css">
 	<script type="text/javascript" src="libs/angular/angular.js"></script>
 	<script type="text/javascript" src="libs/angular/angular-animate.js"></script>
 	<script type="text/javascript" src="libs/angular/angular-cookies.js"></script>
@@ -33,28 +34,28 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>이름</th>
-							<th>E-Mail</th>
-							<th>가입 날짜</th>
-							<th>수정</th>
-							<th>삭제</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="user in userList">
-							<td>{{$index + 1}}</td>
-							<td><input type="text" ng-model="user.name" ng-disabled="!user.edit"></td>
-							<td><input type="email" ng-model="user.email" ng-disabled="!user.edit"></td>
-							<td><input type="date" ng-model="user.regDate" ng-disabled="!user.edit"></td>
-							<td class="center">
-								<button class="btn btn-danger" type="button" ng-show="!user.edit" ng-click="edit(user)">
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>이름</th>
+			<th>E-Mail</th>
+			<th>가입 날짜</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="ani-repeat" ng-repeat="user in userList">
+			<td>{{$index + 1}}</td>
+			<td><input type="text" ng-model="user.name" ng-disabled="!user.edit"></td>
+			<td><input type="email" ng-model="user.email" ng-disabled="!user.edit"></td>
+			<td><input type="date" ng-model="user.regDate" ng-disabled="!user.edit"></td>
+							<td class="center btn-container">
+								<button class="btn btn-danger ani-button" class="" ng-show="!user.edit" ng-click="edit(user)">
 									<i class='icon-white icon-pencil'></i>
 								</button>
-								<button class="btn btn-info" ng-show="user.edit" type="button" ng-click="complete(user)">
+								<button class="btn btn-info ani-button" ng-show="user.edit" type="button" ng-click="complete(user)">
 									<i class='icon-white icon-ok'></i>
 								</button>
 							</td>
