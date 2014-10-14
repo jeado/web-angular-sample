@@ -1,0 +1,8 @@
+<div class="container list" ng-class="listCtrl">
+ <input type="search" class="form-control app-search needsclick" placeholder="연재 타이틀" ng-model="serachTitle">
+ <div class="scrollable">
+  <div class="list-group scrollable-content">
+   <a ng-repeat="tutorial in tutorials | filter:serachTitle" href="#/list" class="list-group-item">{{tutorial.title}}</a> 
+  </div>
+ </div>
+</div>

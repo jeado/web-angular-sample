@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="mobileSample">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>사용자 관리 DEMO APP</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="libs/mobile-angular-ui/css/mobile-angular-ui-hover.min.css" />
+ <link rel="stylesheet" href="libs/mobile-angular-ui/css/mobile-angular-ui-base.min.css" />
+ <link rel="stylesheet" href="libs/mobile-angular-ui/css/mobile-angular-ui-desktop.min.css" />
+ <link rel="stylesheet" href="resources/mobile.css">
+</head>
+<body>
+ <div class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar">
+  <h1 class="app-name">Demo</h1>
+  <div class="scrollable">
+   <div class="scrollable-content">
+    <div class="list-group" toggle="off" bubble target="mainSidebar">
+     <a class="list-group-item" href="#/list">연재 목록</a>
+     <a class="list-group-item" href="#/list2">로그인</a>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="app">
+  <nav class="navbar navbar-app navbar-default web-sample-nav navbar-static-top" role="banner">
+   <div class="container-fluid">
+     <div class="navbar-header">
+      <a class="navbar-brand navbar-brand-center" href="#">Demo</a>
+     </div>
+     <div class="btn-group pull-left">
+       <a ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
+         <i class="fa fa-bars"></i>Menu
+       </a>
+     </div>   
+   </div>
+  </nav>
+  <main class="web-sample-masthead app-body" role="main">
+   <ng-view class="app-content">
+  </main>
+ </div>
+ <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+ <script type="text/javascript" src="libs/angular/angular-touch.min.js"></script>
+ <script type="text/javascript" src="libs/angular/angular-route.min.js"></script>
+ <script type="text/javascript" src="libs/mobile-angular-ui/js/mobile-angular-ui.min.js"></script>
+ <script type="text/javascript" src="mobileApp.js"></script>
+</body>
+</html>
