@@ -13,6 +13,7 @@
     "gulp-webserver": "^0.3.4"
   },
   "dependencies": {
+    "browser-sync": "^1.5.8",
     "grunt": "~0.4.5"
   },
   "repository": {
