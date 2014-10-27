@@ -59,10 +59,7 @@
                 user :UserService.getUser()
             });
             $scope.chatTxt = "";
-        };
-        ChatService.onChatMsg($scope, function (coreid, temperature) {
-            $scope.panic = 'extreme panic';
-        });       
+        };      
     }])
     .controller('chatBodyCtrl', ['$scope','ChatService', function ($scope,ChatService) {
         $scope.chats = [];
