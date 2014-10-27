@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="demo-app">
+	<head>
+		<meta charset="UTF-8">
+		<title>Promise와 Deferred 예제</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="libs/angular/angular.js"></script>
+		<script>
+		angular.module('demo-app', [])
+		.controller('mainCtrl', ['$scope','$timeout', function ($scope, $timeout) {
+			var threeSecPromise = $timeout(function() {
+				return $scope.answer; 
+			},3000);
+			
+			threeSecPromise.then(function(val) {
+				if(val == 39){
+					$scope.result="맞았어요.";
+				}else{
+					$scope.result="틀렸어요.";
+				}
+			},function () {
+				$scope.result="너무 어려웠나요?";
+			});
+
+			threeSecPromise.finally(function() {
+				$scope.info = "다시 시작하려면 refresh 해주세요."
+			});
+      
+      $scope.giveUp = function() {
+      	$timeout.cancel(threeSecPromise);
+      };
+		}]);
+		</script>
+	</head>
+<body ng-controller="mainCtrl">
+	<div class="container">
+		<h1>3초안에 답을 말하세요!</h1>
+		<div class="well clearfix">
+			<div>10-1+29+2-1 = <input ng-model="answer" ng-disabled="result"></div>
+			<div class="pull-right">
+				<button class="btn btn-info" ng-click="giveUp()">포기</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="well">{{result}} <br> {{info}}</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
