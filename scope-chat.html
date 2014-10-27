@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>채팅창 클라이언트 Scope 이벤트 처리 예제</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+        .chat {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        .chat li {
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+          border-bottom: 1px dotted #999;
+        }
+        .chat li.left .chat-body {
+          margin-left: 60px;
+        }
+        .chat li.right .chat-body {
+          margin-right: 60px;
+        }
+        .container{
+          margin-top: 40px;
+        }
+    </style>
+    <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+    <script>
+    angular.module('chatApp', []).
+    factory('UserService', function () {
+       return {
+            getUser : function () {
+                return {
+                    name : '제이'
+                }
+            }
+       } 
+    }).
+    factory('ChatService', function ($rootScope) {
+        var CHAT_EVENT_MSG = "chat_masg",
+            senChatMsg = function (msg) {
+                $rootScope.$broadcast(CHAT_EVENT_MSG, msg);
+            },
+            onElevatedCoreTemperature = function ($scope, handler) {
+                $scope.$on(CHAT_EVENT_MSG, function (event, msg) {
+                handler(msg);
+            });
+        };
+        return {
+            senChatMsg: senChatMsg,
+            onElevatedCoreTemperature: onElevatedCoreTemperature
+        };
+    })
+    .controller('chatInputCtrl', ['$scope','ChatService','UserService', function ($scope,ChatService,UserService) {
+        $scope.sendMsg = function (msg) {
+            ChatService.senChatMsg({
+                msg : msg,
+                user :UserService.getUser()
+            });
+            $scope.chatTxt = "";
+        };
+        ChatService.onElevatedCoreTemperature($scope, function (coreid, temperature) {
+            $scope.panic = 'extreme panic';
+        });       
+    }])
+    .controller('chatBodyCtrl', ['$scope','ChatService', function ($scope,ChatService) {
+        $scope.chats = [];
+        ChatService.onElevatedCoreTemperature($scope, function (msg) {
+            $scope.chats.push(msg);
+        });       
+    }]);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="chat-panel panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-comments fa-fw"></i>
+              채팅예제
+            </div>
+            <div class="panel-body" ng-controller="chatBodyCtrl">
+              <ul class="chat">
+                <li class="{{$even && 'left' || 'right'}} clearfix" ng-repeat="chat in chats">
+                  <span class="chat-img pull-{{$even && 'left' || 'right'}}">
+                  <img src="http://placehold.it/50/55C1E7/fff" alt="사용자 이미지" class="img-circle">
+                  </span>
+                  <div class="chat-body clearfix">
+                    <div class="header text-{{$even && 'left' || 'right'}}">
+                      <strong>{{chat.user.name}}</strong>
+                    </div>
+                    <p>{{chat.msg}}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer" ng-controller="chatInputCtrl">
+              <div class="input-group">
+                <input id="btn-input" type="text" class="form-control input-sm" ng-model="chatTxt">
+                <span class="input-group-btn">
+                <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="sendMsg(chatTxt)">전송</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
