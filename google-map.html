@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>AngualrJS Google Map Directive 데모 엡</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+      .search-container { padding: 20px; padding-bottom: 0; }
+      .map-container { height: 300px; width: 300px; margin: 20px; padding: 0; border: 1px solid #000; }    
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>
+    <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+    <script src="gmap/directive/google-map.js"></script>
+    <script>
+    angular.module('demoApp', ['ngGMap']).
+      controller('demoCtrl', ['$scope', function ($scope) {
+        $scope.cordiList = [
+          {
+            name : '서울',
+            center : [37.561192, 127.030487]
+          },
+          {
+            name : '부산',
+            center : [35.178202, 129.078666]
+          }
+        ];
+        $scope.selectedCord = $scope.cordiList[0];
+        $scope.zoom = 12;
+      }]);
+    </script>
+  </head>
+  <body ng-controller="demoCtrl">
+    <form class="form-inline search-container">
+      <div class="form-group">
+        <select ng-model="selectedCord" class="form-control" ng-options="cord.name for cord in cordiList" >
+        <input type="number" class="form-control" ng-model="zoom">
+      </select>
+      </div>
+    </form>
+    <div class="map-container">
+      <g-map center="{{selectedCord.center}}" zoom="{{zoom}}"></g-map>
+    </div>
+  </body>
+</html>
