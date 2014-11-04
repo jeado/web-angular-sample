@@ -10,7 +10,10 @@
   "license": "월간 웹",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "gulp-webserver": "^0.3.4"
+    "gulp-webserver": "^0.3.4",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.2.3"
   },
   "dependencies": {
     "body-parser": "^1.9.2",
